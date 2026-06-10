@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EZR URLs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        },
+      }},
+    };
+  </script>
+  <style>
+    body { font-feature-settings: "cv02","cv03","cv04","cv11"; }
+    a.url { font-family: 'JetBrains Mono', ui-monospace, monospace; color: rgb(7 89 133); text-decoration: none; word-break: break-all; }
+    a.url:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <main class="max-w-2xl mx-auto px-6 py-12">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-950 mb-8">EZR URLs</h1>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Admin Portal</h2>
+      <ul class="space-y-2">
+        <li class="flex gap-4 items-baseline">
+          <span class="text-sm font-semibold text-slate-700 w-12 flex-shrink-0">Dev</span>
+          <a href="https://admin.ezr-dev.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezr-dev.runpathwise.com</a>
+        </li>
+        <li class="flex gap-4 items-baseline">
+          <span class="text-sm font-semibold text-slate-700 w-12 flex-shrink-0">UAT</span>
+          <a href="https://admin.ezr-uat.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezr-uat.runpathwise.com</a>
+        </li>
+        <li class="flex gap-4 items-baseline">
+          <span class="text-sm font-semibold text-slate-700 w-12 flex-shrink-0">Prod</span>
+          <a href="https://admin.ezrouting.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezrouting.com</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Tools</h2>
+      <ul class="space-y-2">
+        <li class="flex gap-4 items-baseline">
+          <span class="text-sm font-semibold text-slate-700 w-32 flex-shrink-0">Turbo Sniffle</span>
+          <a href="https://turbo-sniffle-92zw2p6.pages.github.io/prod-ui.html" class="url text-sm" target="_blank" rel="noopener">turbo-sniffle-92zw2p6.pages.github.io</a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Docs</h2>
+      <ul class="space-y-2">
+        <li class="flex gap-4 items-baseline">
+          <span class="text-sm font-semibold text-slate-700 w-32 flex-shrink-0">EZRD Wiki</span>
+          <a href="https://ezrd-wiki.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">ezrd-wiki.runpathwise.com</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
