@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EZR URLs</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f172a'/%3E%3Ctext x='16' y='23' font-family='Inter,sans-serif' font-size='18' font-weight='800' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'%3EEZ%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,30 +21,73 @@
   </script>
   <style>
     body { font-feature-settings: "cv02","cv03","cv04","cv11"; }
-    a.url { font-family: 'JetBrains Mono', ui-monospace, monospace; color: rgb(7 89 133); text-decoration: none; word-break: break-all; }
-    a.url:hover { text-decoration: underline; }
+    .url {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      color: rgb(7 89 133);
+      text-decoration: none;
+      word-break: break-all;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .url:hover {
+      color: rgb(3 105 161);
+      border-bottom-color: rgb(125 211 252);
+    }
+    .url::after {
+      content: "↗";
+      display: inline-block;
+      margin-left: 0.35rem;
+      opacity: 0;
+      transform: translate(-2px, -1px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      font-family: ui-sans-serif, sans-serif;
+    }
+    .url:hover::after {
+      opacity: 0.55;
+      transform: translate(0, -1px);
+    }
+    .row {
+      padding: 0.4rem 0.6rem;
+      margin: 0 -0.6rem;
+      border-radius: 0.4rem;
+      transition: background-color 0.12s ease;
+    }
+    .row:hover { background-color: rgb(241 245 249); }
+    .dot {
+      display: inline-block;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 9999px;
+      margin-right: 0.55rem;
+      vertical-align: 0.1rem;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-  <main class="max-w-2xl mx-auto px-6 py-12">
-    <h1 class="text-2xl font-bold tracking-tight text-slate-950 mb-8">EZR URLs</h1>
+  <main class="max-w-2xl mx-auto px-6 py-14">
+    <header class="mb-10">
+      <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 mb-1">EZR URLs</h1>
+      <p class="text-sm text-slate-500">Quick reference for EZRouting environments, tools, and docs.</p>
+    </header>
 
     <section class="mb-8">
-      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Admin Portal</h2>
-      <ul class="space-y-2">
-        <li class="flex gap-4 items-baseline">
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">
+        <span class="dot bg-sky-500"></span>Admin Portal
+      </h2>
+      <ul class="space-y-1">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-24 flex-shrink-0">Dev</span>
           <a href="https://admin.ezr-dev.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezr-dev.runpathwise.com</a>
         </li>
-        <li class="flex gap-4 items-baseline">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-24 flex-shrink-0">UAT (EKS)</span>
           <a href="https://admin.ezr-uat.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezr-uat.runpathwise.com</a>
         </li>
-        <li class="flex gap-4 items-baseline">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-24 flex-shrink-0">UAT (EC2)</span>
           <a href="https://admin.ezr-uat-ec2.runpathwise.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezr-uat-ec2.runpathwise.com</a>
         </li>
-        <li class="flex gap-4 items-baseline">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-24 flex-shrink-0">Prod</span>
           <a href="https://admin.ezrouting.com/" class="url text-sm" target="_blank" rel="noopener">admin.ezrouting.com</a>
         </li>
@@ -51,24 +95,32 @@
     </section>
 
     <section class="mb-8">
-      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Tools</h2>
-      <ul class="space-y-2">
-        <li class="flex gap-4 items-baseline">
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">
+        <span class="dot bg-purple-500"></span>Tools
+      </h2>
+      <ul class="space-y-1">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-32 flex-shrink-0">Turbo Sniffle</span>
           <a href="https://turbo-sniffle-92zw2p6.pages.github.io/prod-ui.html" class="url text-sm" target="_blank" rel="noopener">turbo-sniffle-92zw2p6.pages.github.io</a>
         </li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">Docs</h2>
-      <ul class="space-y-2">
-        <li class="flex gap-4 items-baseline">
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-wider uppercase text-slate-500 mb-3">
+        <span class="dot bg-emerald-500"></span>Docs
+      </h2>
+      <ul class="space-y-1">
+        <li class="row flex gap-4 items-baseline">
           <span class="text-sm font-semibold text-slate-700 w-32 flex-shrink-0">EZRD Wiki</span>
           <a href="https://scaling-adventure-y7qz5zw.pages.github.io/adr/0010-trunk-based-development/" class="url text-sm" target="_blank" rel="noopener">scaling-adventure-y7qz5zw.pages.github.io</a>
         </li>
       </ul>
     </section>
+
+    <footer class="pt-8 mt-8 border-t border-slate-200 text-xs text-slate-400">
+      <a href="https://github.com/don-pathwise/pathwise-urls" class="hover:text-slate-600 transition-colors" target="_blank" rel="noopener">don-pathwise/pathwise-urls</a>
+    </footer>
   </main>
 </body>
 </html>
